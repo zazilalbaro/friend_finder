@@ -184,7 +184,7 @@
 
 		    // Capture the form inputs 
 		    $("#submit").on("click", function(){
-
+		    	console.log("submit clicked");
 		    	// Form validation
 		    	function validateForm() {
 				  var isValid = true;
@@ -202,7 +202,7 @@
 				}
 
 				// If all required fields are filled
-				if (validateForm() == true)
+				if (validateForm())
 				{
 					// Create an object for the user's data
 			    	var userData = {
@@ -221,17 +221,17 @@
 			    			$("#q10").val(), 
 			    		]
 			    	}
-
+			    	console.log(userData);
 
 			    	// Grab the URL of the website
 			    	var currentURL = window.location.origin;
 
 			    	// AJAX post the data to the friends API. 
 			    	$.post(currentURL + "/api/friends", userData, function(data){
-
+			    		
 			    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
 			    		$("#matchName").text(data.name);
-			    		$('#matchImg').attr("src", data.photo);
+			    		$("#matchImg").attr("src", data.photo);
 
 				    	// Show the modal with the best match 
 				    	$("#resultsModal").modal('toggle');
