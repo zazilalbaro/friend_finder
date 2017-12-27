@@ -6,7 +6,7 @@
 // ===============================================================================
 var friendsArray = [
 	{
-	  "name":"Suzie Q",
+	  "name":"Suzie Queue",
 	  "photo":"http://hairstylesg.com/wp-content/uploads/2017/04/dirty-blonde-hair-photo-10.jpg",
 	  "scores":[
 	      5,
@@ -22,7 +22,23 @@ var friendsArray = [
 	    ]
 	},
 	{
-	  "name":"Boo",
+	  "name":"Timmery Johnson",
+	  "photo":"http://i.imgur.com/Ihux9.jpg",
+	  "scores":[
+	      5,
+	      1,
+	      4,
+	      4,
+	      5,
+	      1,
+	      2,
+	      5,
+	      4,
+	      1
+	    ]
+	},
+	{
+	  "name":"Boo Jones",
 	  "photo":"https://vignette.wikia.nocookie.net/pixar/images/7/7c/Boo.png",
 	  "scores":[
 	      5,

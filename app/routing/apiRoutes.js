@@ -28,8 +28,38 @@ module.exports = function(app) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body-parser middleware
-      friendsData.push(req.body);
-      res.json(true);
+    var bestMatch = {
+      name: "",
+      photo: "",
+      friendDifference: 1000
+    };
+
+    console.log(req.body);
+
+    var userData = req.body;
+    var userScores = userData.scores;
+
+    console.log(userScores);
+
+    var totalDifference = 0;
+
+    for (var i = 0; i < friends.length; i++) {
+      console.log(riends[i]);
+      totalDifference = 0;
+
+      for (var j = 0; j < friends[i].scores[j]; j++) {
+        totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
+
+        if (totalDifference <= bestMatch.friendDifference) {
+          bestMatch.name = friends[i].name;
+          bestMatch.photo = friends[i].photo;
+          bestMatch.friendDifference = totalDifference;
+        }
+      }
+    }
+
+    friends.push(userData);
+    res.json(bestMatch);
   });
   // ---------------------------------------------------------------------------
 };
