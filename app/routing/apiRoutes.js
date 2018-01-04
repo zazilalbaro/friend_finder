@@ -3,7 +3,7 @@
 // We are linking our routes to a series of "data" sources.
 // These data sources hold arrays of information on table-data, waitinglist, etc.
 // ===============================================================================
-var friendsData = require("../data/friends");
+var friends = require("../data/friends.js");
 
 // ===============================================================================
 // ROUTING
@@ -15,7 +15,7 @@ module.exports = function(app) {
   // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
   app.get("/api/friends", function(req, res) {
-    res.json(friendsData);
+    res.json(friends);
   });
   // API POST Requests
   // Below code handles when a user submits a form and thus submits data to the server.
@@ -25,6 +25,7 @@ module.exports = function(app) {
   // Then the server saves the data to the tableData array)
   // ---------------------------------------------------------------------------
   app.post("/api/friends", function(req, res) {
+    console.log("went to api-route")
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body-parser middleware
@@ -44,7 +45,7 @@ module.exports = function(app) {
     var totalDifference = 0;
 
     for (var i = 0; i < friends.length; i++) {
-      console.log(riends[i]);
+      console.log(friends[i]);
       totalDifference = 0;
 
       for (var j = 0; j < friends[i].scores[j]; j++) {
